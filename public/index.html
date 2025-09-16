@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,9 +16,27 @@
         <h2>Add Event</h2>
         <form id="modal-event-form">
           <input type="text" id="modal-title" placeholder="Event Title" required />
+          <textarea id="modal-note" placeholder="Event Note (optional)" style="margin-bottom:12px;resize:vertical;min-height:40px;"></textarea>
           <input type="datetime-local" id="modal-start" required />
           <input type="datetime-local" id="modal-end" required />
-          <input type="color" id="modal-color" value="#2196f3" required />
+          <label for="modal-color" style="font-size:0.98em;margin-bottom:2px;display:block;color:#2196f3;">Choose a color for this event:</label>
+          <select id="modal-color" required>
+            <option value="#e53935" data-color="#e53935">🔴 Red</option>
+            <option value="#d81b60" data-color="#d81b60">🩷 Pink</option>
+            <option value="#8e24aa" data-color="#8e24aa">🟣 Purple</option>
+            <option value="#5e35b1" data-color="#5e35b1">🟪 Deep Purple</option>
+            <option value="#3949ab" data-color="#3949ab">🔵 Indigo</option>
+            <option value="#1e88e5" data-color="#1e88e5">🔷 Blue</option>
+            <option value="#039be5" data-color="#039be5">🟦 Light Blue</option>
+            <option value="#00acc1" data-color="#00acc1">🟦 Cyan</option>
+            <option value="#00897b" data-color="#00897b">🟩 Teal</option>
+            <option value="#43a047" data-color="#43a047">🟩 Green</option>
+            <option value="#7cb342" data-color="#7cb342">🟩 Light Green</option>
+            <option value="#fbc02d" data-color="#fbc02d">🟨 Yellow</option>
+            <option value="#fdd835" data-color="#fdd835">🟨 Amber</option>
+            <option value="#fb8c00" data-color="#fb8c00">🟧 Orange</option>
+            <option value="#f4511e" data-color="#f4511e">🟧 Deep Orange</option>
+          </select>
           <button type="submit">Add Event</button>
         </form>
       </div>
@@ -28,9 +46,15 @@
       <button type="button" data-view="week">Week</button>
       <button type="button" data-view="month" class="active">Month</button>
     </div>
+    <div id="calendar-nav">
+      <button id="prev-period" title="Previous">&#8592;</button>
+      <span id="current-period-label"></span>
+      <button id="next-period" title="Next">&#8594;</button>
+    </div>
     <div id="calendar-container">
       <div id="calendar-header"></div>
       <div id="calendar"></div>
+      <div id="day-events-list"></div>
     </div>
   </div>
   <script src="app.js"></script>
