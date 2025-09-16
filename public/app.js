@@ -180,6 +180,11 @@ let editingEventIndex = null;
               ev.className = 'event';
               ev.style.background = event.color;
               ev.textContent = event.title.length > 20 ? event.title.slice(0, 20) + '…' : event.title;
+              ev.style.cursor = 'pointer';
+              ev.addEventListener('click', (eClick) => {
+                eClick.stopPropagation();
+                showModal(event, events.indexOf(event));
+              });
               cell.appendChild(ev);
             });
             cell.addEventListener('click', () => {
