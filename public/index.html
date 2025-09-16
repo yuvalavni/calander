@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Calendar Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Google Calendar Simulation</h1>
+    <!-- Event creation modal -->
+    <div id="event-modal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h2>Add Event</h2>
+        <form id="modal-event-form">
+          <input type="text" id="modal-title" placeholder="Event Title" required />
+          <input type="datetime-local" id="modal-start" required />
+          <input type="datetime-local" id="modal-end" required />
+          <input type="color" id="modal-color" value="#2196f3" required />
+          <button type="submit">Add Event</button>
+        </form>
+      </div>
+    </div>
+    <div id="view-switcher">
+      <button type="button" data-view="day">Day</button>
+      <button type="button" data-view="week">Week</button>
+      <button type="button" data-view="month" class="active">Month</button>
+    </div>
+    <div id="calendar-container">
+      <div id="calendar-header"></div>
+      <div id="calendar"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
